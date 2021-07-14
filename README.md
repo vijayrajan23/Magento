@@ -115,6 +115,33 @@ X) Enable developer mode
 XI) Run setup:upgrade, setup:di:compile and cache:clean command
 # bin/magento se:up && bin/magento se:d:c && bin/magento c:c
 
+Admin Password changes
+
+# cd /var/www/html/magento/
+
+# php bin/magento admin:user:create --admin-user aditya --admin-password Lemon@11  --admin-email aditya94cloud@gmail.com --admin-firstname aditya --admin-lastname cloud
+
+# php bin/magento module:disable Magento_TwoFactorAuth
+
+# php bin/magento cache:flush
+
+
+# php bin/magento deploy:mode:set developer
+
+# php bin/magento se:up && bin/magento se:d:c && bin/magento c:c 
+
+# chmod -R 777 var/
+# chmod -R 777 app/
+# chmod -R 777 pub/
+# chmod -R 777 vendor/
+# chmod -R 777 generated/
+
+
+# php bin/magento indexer:reindex
+
+
+
+
 
 
 
