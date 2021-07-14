@@ -150,8 +150,20 @@ $ sudo chmod -R 777 vendor/
 $ sudo chmod -R 777 generated/
 
 $ sudo php bin/magento indexer:reindex
-```
 
+```
+CHANGE THE BASE URL 
+```
+$ sudo php bin/magento setup:store-config:set --base-url=http://13.127.248.4/
+
+Permission changen config files 
+
+$ sudo chmod -R 777 var/
+
+$ sudo chmod -R 777 app/
+
+$ sudo chmod -R 777 pub/
+```
 
 
 
