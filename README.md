@@ -42,6 +42,7 @@ $ sudo vim /etc/apache2/sites-available/magento.conf
 ```
 $ sudo a2ensite magento.conf
 $ sudo a2enmod rewrite
+$ sudo a2dissite 000-default.conf
 ```
 III) Installing PHP and dependencies
 ```
@@ -66,6 +67,12 @@ $ sudo mysql -u root -p
 CREATE DATABASE magento;
 CREATE USER 'magento'@'localhost' IDENTIFIED BY 'magento123';
 CREATE USER 'magento'@'%' IDENTIFIED BY 'magento123';
+
+GRANT ALL PRIVILEGES ON magento. * TO 'magento'@'localhost';
+
+GRANT ALL PRIVILEGES ON magento. * TO 'magento'@'%';
+
+
 
 FLUSH PRIVILEGES;
 EXIT;
@@ -120,6 +127,12 @@ $ sudo bin/magento deploy:mode:set developer
 XI) Run setup:upgrade, setup:di:compile and cache:clean command
 ```
 $ sudo bin/magento se:up && bin/magento se:d:c && bin/magento c:c
+
+$ sudo php bin/magento module:disable Magento_TwoFactorAuth
+
+$ sudo php bin/magento info:adminuri
+
+
 ```
 Magent reindex
 ```
